@@ -1,6 +1,7 @@
 package com.example.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
@@ -23,4 +24,12 @@ public interface StudentRepository extends MongoRepository<Student, String> {
 	List<Student> findByEmailIsLike (String email);
 	
 	List<Student> findByNameStartsWith (String name);
+	
+	List<Student> findByDepartmentId (String deptId);
+
+	Student save(Student student);
+
+	Optional<Student> findById(String id);
+
+	void deleteById(String id);
 }
