@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Service;
 
 import com.example.entity.Student;
@@ -53,7 +54,7 @@ public class StudentService {
 	}
 	
 	public List<Student> getStudentsByName (String name) {
-		return studentRepository.findByName(name);
+		return studentRepository.getByName(name);
 	}
 	
 	public Student studentsByNameAndMail (String name, String email) {
@@ -95,5 +96,5 @@ public class StudentService {
 	public List<Student> byDepartmentId (String deptId) {
 		return studentRepository.findByDepartmentId(deptId);
 	}
-	
+
 }
